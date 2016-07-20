@@ -2,7 +2,7 @@
 
 [ $DEBUG ] && set -x
 
-KANBAN_REDIS_ADDR=${REDIS_HOST:-127.0.0.1}:${REDIS_PORT:-6379}
+export KANBAN_REDIS_ADDR=${REDIS_HOST:-127.0.0.1}:${REDIS_PORT:-6379}
 
 # test redis connection
 for i in {30..0}; do
@@ -13,4 +13,4 @@ for i in {30..0}; do
   sleep 1
 done
 
-/opt/kanban/kanban server
+/opt/kanban/kanban server --redis-addr=${KANBAN_REDIS_ADDR}
