@@ -2,7 +2,7 @@ FROM alpine:latest
 
 EXPOSE 80
 
-RUN apk add --no-cache tzdata libc6-compat wget curl bash && \
+RUN apk add --no-cache tzdata libc6-compat wget curl bash netcat-openbsd && \
        ln -s /lib /lib64 && \
        cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
        echo "Asia/Shanghai" >  /etc/timezone && \
